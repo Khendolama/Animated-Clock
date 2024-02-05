@@ -1,0 +1,86 @@
+.clock {
+    position: absolute;
+    visibility: visible;
+    left: 68%;
+    top: 55px;
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    border: 1px solid gold;
+    padding: 5px;
+    background-image: url(../images/sun-clock-coffee.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: rotate(-8deg);
+    z-index: 5;
+}
+
+/* > * target everything that is a direct descendant (child) of .clock */
+.clock > * {
+    /* center the hour, min and sec hands */
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    height: 50%;
+    margin-left: -1px;
+    border: 1px solid blue;
+    transform-origin: bottom;
+}
+
+.hourhand {
+    height: 16%;
+    border: 4px solid #7788ee;
+    /* width: 35px;
+    background-image: url(images/hour-hand-158x344.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none; */
+}
+
+.minutehand {
+    height: 22%;
+    border: 2px solid cornflowerblue;
+    /* width: 35px;
+    /* background-image: url(images/minute-hand-125x400.png); */
+    /* background-size: contain;
+    background-repeat: no-repeat;
+    border: none; */
+}
+
+.sechand {
+    height: 33%;
+    border: 1px solid #f00;
+}
+
+.cup-arm {
+    position: absolute;
+    visibility: visible;
+    top: 178px;
+    right: 200px;
+    width: 200px;
+    height: 116px;
+    /* pin the cup-arm shoulder so doesn't move
+    transform origin sets the "pivot point" of rotation,
+    that is, the part that does NOT move */
+    transform-origin: top right;
+    background-image: url(../images/sun-arm-coffee-cup-200x116.png);
+    z-index: 5;
+    border: none;
+    /* border: 3px dashed cyan; */
+}
+
+@media (max-width: 1150px) {
+
+    .clock, .cup-arm {
+        visibility: hidden;
+    }
+
+}
+/* 
+@media (max-width: 1200px) {
+
+    .cup-arm {
+        visibility: hidden;
+    }
+
+} */

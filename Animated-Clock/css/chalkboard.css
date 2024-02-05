@@ -1,0 +1,48 @@
+/*  a div to hold the current day and a timely 
+greeting "Good Morning/Afternoon/Evening" */
+
+#chalkboard {
+    position: absolute;
+    visibility: visible;
+    font-family: 'Gochi Hand', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+    width: 200px;
+    top: 257px;
+    right: 35px;
+    background-color: #111;
+    border: 3px solid #eee;
+    border-radius: 8px;
+    text-transform: uppercase;
+    transform: rotate(5deg);
+    color: #eee;
+    padding: 12px;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 3px;
+    z-index: 1;
+}
+
+/* mobile chalkboard down below at bottom of hero */
+@media (max-width: 850px) {
+
+    #chalkboard {
+        height: 66px;
+        width: 400px;
+        top: 375px;
+        right: 5%;
+        /* left: 0; */
+        transform: rotate(0deg);
+        font-size: 1.1em;
+        line-height: 1.25em;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        padding: 3px 20px 3px 30px;
+        border-radius: 0;
+        text-align: center;
+    }
+
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clock w Working Hands</title>
+
+    <style>
+        .clock {
+            position: absolute;
+            left: 68%;
+            top: 35px;
+            width: 225px;
+            height: 250px;
+            border-radius: 5%;
+            /* border: 3px solid gold; */
+            padding: 5px;
+            background-image: url(images/sun-clock-coffee.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: rotate(-3deg);
+            z-index: 5;
+        }
+        
+        .clock>* {
+            /* center the hour, min and sec hands */
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            height: 50%;
+            margin-left: -1px;
+            border: 1px solid blue;
+            transform-origin: bottom;
+        }
+        
+        .hourhand {
+            height: 18%;
+            border: 6px solid #7788ee;
+            transform: rotate(0.8235turn);
+            0.8235294117647058: 1: 27416338.764516667
+        }
+        
+        .minutehand {
+            height: 26%;
+            border: 4px solid cornflowerblue;
+            transform: rotate(1turn);
+            /* width: 35px;
+            /* background-image: url(images/minute-hand-125x400.png); */
+            /* background-size: contain;
+            background-repeat: no-repeat;
+            border: none; */
+        }
+        
+        .sechand {
+            height: 33%;
+            border: 2px solid #f00;
+            transform: rotate(27416338turn);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="clock">
+        <div class="hourhand"></div>
+        <div class="minutehand"></div>
+        <div class="sechand"></div>
+    </div>
+
+    <script>
+        setInterval(() => {
+
+            var date = new Date();
+
+            var positions = [
+                date.getHours() / 24,
+                date.getMinutes() / 60,
+                date.getTime() / 60000
+            ];
+
+            console.log(positions[0] + ' : ' + positions[1] + ' : ' + positions[2]);
+            // 0.8235294117647058 : 1 : 27416338.764516667
+            var clock = document.querySelector('.clock');
+
+            // run a func on each item in positions arr where the current array item
+            // is timeUnit and arrIndex is the index of same
+            // the one line of code targets the child of the clock div:
+            // the 3 children of the clock div are hr, min and sec hands, so
+            // as the time unit is looped through, that unit is applied as the rotation
+            // turn value of the corresponding clock hand div
+            positions.forEach((timeUnit, arrIndex) => {
+                clock.children[arrIndex].style.transform = 'rotate(' + timeUnit + 'turn)';
+            });
+
+        }, 40);
+    </script>
+
+</body>
+
+</html>
